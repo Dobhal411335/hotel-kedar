@@ -29,17 +29,19 @@ export function Logo({
           height={150}
           src={src}
           alt={imageAlt || `${displayName} logo`}
-          className="size-10 md:size-12 rounded-full object-cover"
+          className={cn(
+            "object-cover h-16 w-full", className
+          )}
         />
       )}
-      <span
+      {/* <span
         className={cn(
           "font-heading text-xl tracking-tight",
           tone === "light" ? "text-surface" : "text-heading"
         )}
       >
         {displayName}
-      </span>
+      </span> */}
     </Link>
   );
 }

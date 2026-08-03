@@ -49,10 +49,15 @@ export default function PackageDetailClient({
         : null;
 
   const whatsappEnquiryMessage = [
-    "Namaste 🙏",
+    "Dear Reservations Team,",
     "",
-    "I hope you're well. I'd like to enquire about the following package:",
+    "Greetings For Hotel Kedar Heaven!",
     "",
+    "We are writing to inquire about room availability at your esteemed property for our upcoming dates. Could you please share the availability status along with the pricing details for your Deluxe Room category?",
+    "",
+    "We look forward to your prompt response so we can proceed with our travel plans.",
+    "",
+    "--- Details ---",
     `Package: ${packageDetails?.packageName || "—"}`,
     packageDetails?.basicDetails?.location
       ? `Location: ${packageDetails.basicDetails.location}`
@@ -64,11 +69,7 @@ export default function PackageDetailClient({
       ? `Category: ${packageDetails.basicDetails.tourType}`
       : null,
     priceLabel ? `Price: ${priceLabel}` : null,
-    packageDetails?.slug ? `Page: /package/${packageDetails.slug}` : null,
-    "",
-    "Could you please share availability and more details?",
-    "",
-    "Thank you!",
+    packageDetails?.slug ? `Page: ${process.env.NEXT_PUBLIC_SITE_URL}/package/${packageDetails.slug}` : null,
   ]
     .filter((line) => line !== null)
     .join("\n");

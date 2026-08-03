@@ -181,62 +181,23 @@ export default function RoomDetailView({ data }) {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [showShareBox]);
 
-  function handleExpertInputChange(e) {
-    const { name, value } = e.target;
-    setExpertForm((prev) => ({ ...prev, [name]: value }));
-  }
-
-  async function handleExpertSubmit(e) {
-    e.preventDefault();
-    setSubmittingExpert(true);
-    try {
-      const res = await fetch("/api/askExpertsEnquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...expertForm,
-          type: "room",
-          room: data._id,
-          queryName: data.title || "",
-        }),
-      });
-      if (!res.ok) {
-        const error = await res.json();
-        toast.error(error.message || "Failed to submit your question.");
-        return;
-      }
-      setShowExpertModal(false);
-      setExpertForm({
-        name: "",
-        email: "",
-        phone: "",
-        need: "Appointment",
-        question: "",
-        contactMethod: "Phone",
-      });
-      toast.success("Your question has been submitted.");
-    } catch {
-      toast.error("Failed to submit your question.");
-    } finally {
-      setSubmittingExpert(false);
-    }
-  }
 
   const whatsappMessage = [
-    "Namaste 🙏",
+    "Dear Reservations Team,",
     "",
-    "I'd like to enquire about the following room:",
+    "Greetings For Hotel Kedar Heaven!",
     "",
+    "We are writing to inquire about room availability at your esteemed property for our upcoming dates. Could you please share the availability status along with the pricing details for your Deluxe Room category?",
+    "",
+    "We look forward to your prompt response so we can proceed with our travel plans.",
+    "",
+    "--- Details ---",
     `Room: ${data?.title || "—"}`,
     data?.code ? `Code: ${data.code}` : null,
     baseRate
       ? `Base rate: ${formatPrice(baseRate.amount)} / night (${baseRate.type})`
       : null,
-    data?.slug ? `Page: /room/${data.slug}` : null,
-    "",
-    "Could you please share availability?",
-    "",
-    "Thank you!",
+    data?.slug ? `Page: ${process.env.NEXT_PUBLIC_SITE_URL}/room/${data.slug}` : null,
   ]
     .filter((line) => line !== null)
     .join("\n");

@@ -112,7 +112,7 @@ export function Footer() {
       <div className="container p-5 md:p-10">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div>
-            <Logo tone="light" name={companyName} imageSrc={footerLogoSrc} />
+            <Logo className={"flex items-center object-center h-32"} tone="light" name={companyName} imageSrc={footerLogoSrc} />
             <p className="mt-6 max-w-xs font-body text-sm leading-7 text-white">
               A spiritual habitat in Rishikesh for those returning home to
               themselves.

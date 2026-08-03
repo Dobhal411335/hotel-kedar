@@ -29,10 +29,10 @@ const schema = z.object({
 
 const guestOptions = ["1 guest", "2 guests", "3 guests", "4 guests", "5 guests", "6+ guests"];
 const planOptions = [
-  "Day Sojourn",
-  "Week of Stillness",
-  "Month of Becoming",
-  "Custom / Bespoke",
+  "Room Only",
+  "Upcoming Availability",
+  "Family Or Group Checking",
+  "For Any Packages",
   "Not sure yet",
 ];
 
@@ -114,7 +114,7 @@ export function EnquiryForm() {
   }
 
   return (
-    <div className="rounded-[var(--radius-card)] bg-surface p-8 shadow-sm ring-1 ring-border/60 md:p-10">
+    <div className="rounded-card bg-surface p-8 shadow-sm ring-1 ring-border/60 md:p-10">
       {/* Card header */}
       <div className="mb-8">
         <h2 className="font-heading text-3xl text-heading">

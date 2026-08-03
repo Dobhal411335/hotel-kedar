@@ -30,6 +30,25 @@ const getPackageBySlug = async (slug) => {
     }
 }
 
+export async function generateMetadata({ params }) {
+    const { slug } = await params
+    const packageDetails = await getPackageBySlug(slug)
+
+    if (!packageDetails) {
+        return { title: "Package" }
+    }
+
+    const keywords = Array.isArray(packageDetails.keywords)
+        ? packageDetails.keywords.filter(Boolean)
+        : []
+
+    return {
+        title: packageDetails.titleLine || packageDetails.packageName || "Package",
+        description: packageDetails?.basicDetails?.smallDesc || "",
+        ...(keywords.length > 0 ? { keywords } : {}),
+    }
+}
+
 const getApprovedReviews = async (packageId) => {
     try {
         if (!packageId) return []

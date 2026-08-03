@@ -5,8 +5,8 @@ import { Section } from "@/components/common/Section";
 import { getCompanyBasicInfo } from "@/services/companyBasicInfo.service";
 
 const features = [
-  { icon: Sunrise, label: "Sunrise yoga" },
-  { icon: Flame, label: "Ganga Aarti" },
+  { icon: Sunrise, label: "Sunrise Mountain View" },
+  { icon: Flame, label: "Kedar Maha Aarti" },
   { icon: Mountain, label: "Himalayan hikes" },
   { icon: Landmark, label: "Temple visits" },
 ];
@@ -29,16 +29,13 @@ export async function PhilosophySection() {
 
           <div className="flex flex-col justify-center">
             <p className="font-body text-base leading-[1.9] text-foreground">
-              We believe a meaningful pause shouldn&apos;t demand a sabbatical.
-              {companyInfo?.companyName || "Our retreat"} opens its doors to seekers, sceptics, and weekend
-              escapees alike — offering the same depth, whether you stay a day
-              or a season.
+              Nestled in the serene expanse of Sitapur within the Shivalik Himalayan Range, Hotel Kedar Heaven is a sanctuary of peace, comfort, and traditional Garhwal hospitality. Designed for both pilgrims and mountain travelers seeking rejuvenation, the hotel seamlessly blends modern luxury with the raw, untouched beauty of the sacred Kedarnath landscape.
             </p>
             <p className="mt-5 font-body text-base leading-[1.9] text-foreground">
-              Yoga at sunrise. Temple visits and slow ghats. Hikes into the
-              foothills. The Ganga Aarti by dusk. A bowl of warm kichdi, eaten
-              in silence. Nothing rushed. Nothing performed. Just space — to
-              introspect, to grow, to remember who you are beneath the noise.
+              Step inside to experience an authentic Uttarakhand ambiance characterized by rich wood paneling, antique furnishings, and original artwork. Complemented by high-tech conveniences such as flat-screen TVs and complimentary high-speed Wi-Fi, every detail is crafted for your utmost comfort. Select indoor spaces even feature a mesmerizing starry Swarovski crystal ceiling, bringing the magic of the night sky indoors.
+            </p>
+            <p className="mt-5 font-body text-base leading-[1.9] text-foreground">
+              Wake up to majestic panoramas of endless forests, lush valleys, and snow-capped mountain peaks. Each room features expansive floor-to-ceiling windows and large private terraces or balconies that open up to the magnificent Kedarnath valley, offering front-row seats to unsurpassed natural splendor.
             </p>
 
             <div className="md:mt-10 mt-5 grid grid-cols-2 gap-6 border-t border-border pt-10 sm:grid-cols-4">

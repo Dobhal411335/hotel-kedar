@@ -82,7 +82,7 @@ export function HeroSection() {
       <section className="relative flex min-h-[calc(100vh-80px)] items-end overflow-hidden bg-image-dark">
         {/* Background photo */}
         <Image
-          src="/hero.jpg"
+          src="/hero.png"
           alt="Ganga river at sunset, Rishikesh"
           fill
           priority
@@ -91,24 +91,22 @@ export function HeroSection() {
 
         {/* Dark gradient overlay so text stays readable */}
         <div
-          className="absolute inset-0 bg-linear-to-t from-image-dark via-image-dark/55 to-image-dark/10"
+          className="absolute inset-0 bg-linear-to-t from-image-dark via-image-dark/20 to-image-dark/10"
           aria-hidden="true"
         />
 
         <div className="container relative z-10 px-5 md:px-10 md:pb-20 md:pt-40 py-10 lg:px-20">
           <p className="font-ui text-xs uppercase tracking-[0.35em] text-white">
-            Rishikesh · Uttarakhand
+            Sitapur, Phata, Rudraprayag.
           </p>
 
           <h1 className="mt-4 max-w-3xl font-heading text-[2.5rem] leading-[1.08] tracking-tight text-white md:text-5xl lg:text-[4rem]">
-            Find your stillness{" "}
-            <em className="italic">where the Ganga sings.</em>
+            Your Sacred Haven in the .{" "}
+            <em className="italic">Shadow of the Divine.</em>
           </h1>
 
-          <p className="mt-6 max-w-md font-body text-sm leading-[1.85] text-white/65 lg:text-lg">
-            Hotel Kedar is a quiet sanctuary in the Himalayan foothills — built for
-            travellers who want to slow down, sit with themselves, and return
-            softer than they came.
+          <p className="mt-6 max-w-lg text-justify font-body text-sm leading-[1.2] text-white lg:text-sm">
+            Hotel Kedar Heaven that offer stunning views and serene experiences. Among them, the hotel stand out, providing cozy accommodations with breathtaking vistas of snow-capped peaks and lush valleys.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -231,8 +229,8 @@ export function HeroSection() {
                   type="button"
                   onClick={() => mobileApi?.scrollTo(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${index === mobileSelectedIndex
-                      ? "w-6 bg-white"
-                      : "w-2 bg-white/60"
+                    ? "w-6 bg-white"
+                    : "w-2 bg-white/60"
                     }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
