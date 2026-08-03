@@ -1,6 +1,6 @@
 # DEVELOPMENT_GUIDE.md
 
-# Omvana Retreat CMS
+# Hotel Kedar Heaven Retreat CMS
 
 Development Guide
 

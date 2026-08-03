@@ -9,14 +9,12 @@ import RandomTourPackageSection from "@/components/website/home/RandomTourPackag
 import InstaBlog from "@/components/website/home/InstaBlog";
 import RoomSection from "@/components/website/home/RoomSection";
 import {
-  FALLBACK_METADATA,
   getCompanyBasicInfo,
 } from "@/services/companyBasicInfo.service";
 import { RetreatsSection } from "@/components/website/home/RetreatsSection"
 export async function generateMetadata() {
   const company = await getCompanyBasicInfo();
-  const title =
-    company?.titleTagForMainLandingPage || FALLBACK_METADATA.title;
+  const title = company?.titleTagForMainLandingPage || company?.companyName || "Home";
 
   return {
     title: {
@@ -25,7 +23,7 @@ export async function generateMetadata() {
     keywords:
       company?.keywords?.length > 0
         ? company.keywords
-        : FALLBACK_METADATA.keywords,
+        : [],
   };
 }
 

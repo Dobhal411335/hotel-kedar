@@ -1,8 +1,7 @@
 export const site = {
-  name: "Omvana Yoga Retreat",
-  description:
-    "A quiet sanctuary in the Himalayan foothills. Yoga, meditation, temple walks, and Ganga Aarti — built for travellers who want to return softer than they came.",
-  url: "https://omvanayoga.com",
+  name: "",
+  description: "",
+  url: "",
   defaultLocale: "en",
 };
 

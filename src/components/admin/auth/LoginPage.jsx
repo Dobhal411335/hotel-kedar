@@ -53,7 +53,7 @@ const fadeUp = {
 };
 
 /* ── Left panel ─────────────────────────────────────── */
-function LeftPanel() {
+function LeftPanel({ company }) {
   return (
     <motion.div
       variants={panelVariants}
@@ -70,7 +70,7 @@ function LeftPanel() {
       {/* Top content */}
       <motion.div variants={stagger} initial="hidden" animate="visible" className="relative z-10">
         <motion.p variants={fadeUp} className="font-ui text-[12px] font-semibold uppercase tracking-[0.25em] text-white">
-          Omvana Retreat CMS
+          {company?.companyName || "Admin CMS"}
         </motion.p>
 
         <motion.h1
@@ -113,18 +113,18 @@ function LeftPanel() {
 }
 
 /* ── Logo mark ──────────────────────────────────────── */
-function AdminLogo() {
+function AdminLogo({ company }) {
   return (
     <div className="flex items-center gap-2.5">
       <Image
         width={150}
         height={150}
-        src="/logo.png"
-        alt="Omvana Logo"
+        src={company?.mainLogo?.url || ""}
+        alt={company?.companyName || "Logo"}
         className="size-12 rounded-full object-cover"
       />
       <div>
-        <p className="font-heading text-base font-semibold text-heading">Omvana</p>
+        <p className="font-heading text-base font-semibold text-heading">{company?.companyName || "Admin"}</p>
         <p className="font-ui text-[10px] uppercase tracking-widest text-muted/60">Retreat CMS</p>
       </div>
     </div>
@@ -132,7 +132,7 @@ function AdminLogo() {
 }
 
 /* ── Main exported component ───────────────────────── */
-export function LoginPage() {
+export function LoginPage({ company }) {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [apiError, setApiError] = useState(null);
@@ -169,7 +169,7 @@ export function LoginPage() {
   return (
     <div className="flex min-h-screen">
       {/* Left image panel */}
-      <LeftPanel />
+      <LeftPanel company={company} />
 
       {/* Right form panel */}
       <div className="flex flex-1 items-center justify-center bg-background px-6 py-16">
@@ -181,7 +181,7 @@ export function LoginPage() {
         >
           <div className="rounded-[var(--radius-card)] bg-white px-8 py-10 shadow-sm ring-1 ring-border/50 md:px-10">
             {/* Logo */}
-            <AdminLogo />
+            <AdminLogo company={company} />
 
             {/* Heading */}
             <div className="mt-8 mb-7">
@@ -217,7 +217,7 @@ export function LoginPage() {
                     <Input
                       id="login-email"
                       type="email"
-                      placeholder="admin@omvana.in"
+                      placeholder="Enter Your Admin Email"
                       className="pl-9"
                       autoComplete="email"
                       {...register("email")}
@@ -322,7 +322,7 @@ export function LoginPage() {
 
             {/* Version footer */}
             <p className="mt-8 text-center font-ui text-[11px] text-muted/35">
-              Omvana Retreat CMS · v1.0
+              {company?.companyName || "Admin"} Retreat CMS · v1.0
             </p>
           </div>
         </motion.div>

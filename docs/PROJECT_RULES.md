@@ -2,7 +2,7 @@
 
 Project Name
 
-Omvana Retreat CMS
+Hotel Kedar Heaven Retreat CMS
 
 Version
 

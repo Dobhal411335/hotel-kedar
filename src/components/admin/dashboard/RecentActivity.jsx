@@ -5,7 +5,7 @@ const activityLog = [
   {
     id: 1,
     event: "LOGIN_SUCCESS",
-    email: "admin@omvana.in",
+    email: "admin@example.com",
     ip: "203.0.113.42",
     time: "Today, 10:32 PM",
     status: "success",
@@ -13,7 +13,7 @@ const activityLog = [
   {
     id: 2,
     event: "LOGOUT",
-    email: "admin@omvana.in",
+    email: "admin@example.com",
     ip: "203.0.113.42",
     time: "Today, 08:15 AM",
     status: "neutral",
@@ -21,7 +21,7 @@ const activityLog = [
   {
     id: 3,
     event: "LOGIN_SUCCESS",
-    email: "admin@omvana.in",
+    email: "admin@example.com",
     ip: "203.0.113.42",
     time: "Yesterday, 09:00 AM",
     status: "success",
@@ -29,7 +29,7 @@ const activityLog = [
   {
     id: 4,
     event: "LOGIN_FAILED",
-    email: "admin@omvana.in",
+    email: "admin@example.com",
     ip: "198.51.100.7",
     time: "Yesterday, 01:14 AM",
     status: "error",

@@ -2,6 +2,7 @@ import { Sunrise, Flame, Mountain, Landmark } from "lucide-react";
 
 import { Container } from "@/components/common/Container";
 import { Section } from "@/components/common/Section";
+import { getCompanyBasicInfo } from "@/services/companyBasicInfo.service";
 
 const features = [
   { icon: Sunrise, label: "Sunrise yoga" },
@@ -10,7 +11,8 @@ const features = [
   { icon: Landmark, label: "Temple visits" },
 ];
 
-export function PhilosophySection() {
+export async function PhilosophySection() {
+  const companyInfo = await getCompanyBasicInfo();
   return (
     <Section spacing="sm" className="bg-background">
       <Container>
@@ -28,7 +30,7 @@ export function PhilosophySection() {
           <div className="flex flex-col justify-center">
             <p className="font-body text-base leading-[1.9] text-foreground">
               We believe a meaningful pause shouldn&apos;t demand a sabbatical.
-              Omvana opens its doors to seekers, sceptics, and weekend
+              {companyInfo?.companyName || "Our retreat"} opens its doors to seekers, sceptics, and weekend
               escapees alike — offering the same depth, whether you stay a day
               or a season.
             </p>

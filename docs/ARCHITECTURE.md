@@ -1,4 +1,4 @@
-# Omvana Retreat CMS
+# Hotel Kedar Heaven
 
 # Architecture Document
 
@@ -8,7 +8,7 @@ Version: 1.0
 
 # Overview
 
-Omvana Retreat CMS is a premium content management system built entirely with **Next.js App Router**.
+Hotel Kedar Heaven is a premium content management system built entirely with **Next.js App Router**.
 
 The application consists of two parts inside a single Next.js project.
 

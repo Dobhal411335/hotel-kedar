@@ -71,7 +71,7 @@ export function ContactSection() {
   const companyInfo = useCompanyBasicInfo();
 
   const contactNumbers = companyInfo?.contactNumbers?.length > 0 ? companyInfo.contactNumbers : ["+91 98765 43210"];
-  const emails = companyInfo?.emails?.length > 0 ? companyInfo.emails : ["hello@omvana.in"];
+  const emails = companyInfo?.emails?.length > 0 ? companyInfo.emails : [];
   const officeAddresses = companyInfo?.officeAddresses?.length > 0 ? companyInfo.officeAddresses : ["Tapovan, Rishikesh, Uttarakhand, India"];
 
   return (

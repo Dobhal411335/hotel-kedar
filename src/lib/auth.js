@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 
-export const COOKIE_NAME = "omvana_token";
+export const COOKIE_NAME = "auth_token";
 const DEFAULT_EXPIRES = "7d";
 
 /* ── Sign a JWT ──────────────────────────────────── */

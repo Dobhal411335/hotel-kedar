@@ -2,8 +2,10 @@ import Image from "next/image";
 import { Container } from "@/components/common/Container";
 import { Section } from "@/components/common/Section";
 import { Quote } from "lucide-react";
+import { getCompanyBasicInfo } from "@/services/companyBasicInfo.service";
 
-export function TestimonialsBanner() {
+export async function TestimonialsBanner() {
+  const companyInfo = await getCompanyBasicInfo();
   return (
     <Section
       spacing="sm"
@@ -25,7 +27,7 @@ export function TestimonialsBanner() {
           Voices of <em className="font-normal italic text-primary">peace.</em>
         </h1>
         <p className="mt-6 max-w-xl font-body text-base leading-relaxed text-muted md:text-lg">
-          What people say after leaving Omvana matters more to us than anything
+          What people say after leaving {companyInfo?.companyName || "us"} matters more to us than anything
           we could say about ourselves.
         </p>
       </Container>

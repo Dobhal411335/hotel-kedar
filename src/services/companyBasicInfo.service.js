@@ -2,31 +2,6 @@ import { cache } from "react";
 import connectDB from "@/lib/connectDB";
 import CompanyBasicInfo from "@/models/Admin/CompanyBasicInfo";
 
-const FALLBACK_METADATA = {
-  siteName: "Omvana Yoga Retreat",
-  title:
-    "Omvana Yoga Retreat — Find your stillness where the Ganga sings",
-  description:
-    "Omvana is a quiet sanctuary in the Himalayan foothills of Tapovan, Rishikesh — built for travellers who want to slow down, sit with themselves, and return softer than they came. Experience yoga, meditation, temple walks, and Ganga Aarti in a calm spiritual habitat by the sacred Ganges.",
-  ogDescription:
-    "A quiet sanctuary in the Himalayan foothills. Yoga, meditation, temple walks, and Ganga Aarti — built for travellers who want to return softer than they came.",
-  keywords: [
-    "Omvana Yoga Retreat",
-    "Yoga retreat in Rishikesh",
-    "Meditation retreat Rishikesh",
-    "Tapovan yoga",
-    "Ganga Aarti",
-    "Himalayan foothills",
-    "Spiritual retreat India",
-    "Yoga and meditation",
-    "Rishikesh",
-    "Uttarakhand",
-    "India",
-  ],
-  domain: "https://omvanayoga.com",
-  ogImage: "/logo.png",
-};
-
 function serializeImage(image) {
   return {
     url: image?.url || "",
@@ -65,7 +40,7 @@ function serializeCompanyBasicInfo(record) {
 
 function normalizeSiteUrl(domainName) {
   const value = String(domainName || "").trim();
-  if (!value) return FALLBACK_METADATA.domain;
+  if (!value) return `${process.env.NEXT_PUBLIC_SITE_URL}`;
 
   if (/^https?:\/\//i.test(value)) {
     return value.replace(/\/$/, "");
@@ -88,30 +63,26 @@ export const getCompanyBasicInfo = cache(async () => {
 });
 
 export function buildCompanyMetadata(company) {
-  const siteName = company?.companyName || FALLBACK_METADATA.siteName;
-  const title =
-    company?.titleTagForMainLandingPage || FALLBACK_METADATA.title;
-  const keywords =
-    company?.keywords?.length > 0
-      ? company.keywords
-      : FALLBACK_METADATA.keywords;
+  const siteName = company?.companyName || "";
+  const title = company?.titleTagForMainLandingPage || siteName || "";
+  const keywords = company?.keywords?.length > 0 ? company.keywords : [];
   const siteUrl = normalizeSiteUrl(company?.companyDomainName);
-  const ogImage = company?.mainLogo?.url || FALLBACK_METADATA.ogImage;
+  const ogImage = company?.mainLogo?.url || "/logo.png";
 
   let metadataBase;
   try {
     metadataBase = new URL(siteUrl);
   } catch {
-    metadataBase = new URL(FALLBACK_METADATA.domain);
+    metadataBase = new URL(`${process.env.NEXT_PUBLIC_SITE_URL}`);
   }
 
   return {
     metadataBase,
     title: {
       default: title,
-      template: `%s | ${siteName}`,
+      template: siteName ? `%s | ${siteName}` : "%s",
     },
-    description: FALLBACK_METADATA.description,
+    description: "",
     keywords,
     icons: {
       icon: [
@@ -132,7 +103,7 @@ export function buildCompanyMetadata(company) {
     manifest: "/favicon/site.webmanifest",
     openGraph: {
       title,
-      description: FALLBACK_METADATA.ogDescription,
+      description: "",
       images: [ogImage],
       url: siteUrl,
       siteName,
@@ -141,7 +112,7 @@ export function buildCompanyMetadata(company) {
     twitter: {
       card: "summary_large_image",
       title,
-      description: FALLBACK_METADATA.description,
+      description: "",
       images: [ogImage],
     },
     authors: [{ name: siteName }],
@@ -152,4 +123,3 @@ export function buildCompanyMetadata(company) {
   };
 }
 
-export { FALLBACK_METADATA };

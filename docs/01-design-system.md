@@ -1,5 +1,4 @@
-# Omvana Design System
-
+# Hotel Kedar Heaven
 Version: 1.0
 
 ---
@@ -14,7 +13,7 @@ Every page should breathe through generous spacing, elegant typography, soft col
 
 Design inspiration:
 
-- Omvana Yoga Retreat
+- Hotel Kedar Heaven
 - Aman Resorts
 - Six Senses
 - Apple

@@ -138,7 +138,7 @@ export function AdminSidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
 
-  const companyName = company?.companyName || "Omvana";
+  const companyName = company?.companyName || "Admin";
   const companyEmail = company?.emails?.[0] || "";
 
   async function handleLogout() {

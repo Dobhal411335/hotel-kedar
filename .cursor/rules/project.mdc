@@ -1,10 +1,10 @@
 ---
-description: Global project rules for the Omvana Retreat CMS. Apply these rules for every task unless a more specific rule overrides them.
+description: Global project rules for the Hotel Kedar Heaven Retreat CMS. Apply these rules for every task unless a more specific rule overrides them.
 globs:
 alwaysApply: true
 ---
 
-# Omvana Retreat CMS - Global Rules
+# Hotel Kedar Heaven - Global Rules
 
 ## Documentation
 

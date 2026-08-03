@@ -1,6 +1,6 @@
 # UI_GUIDELINES.md
 
-# Omvana Retreat CMS
+# Hotel Kedar Heaven Retreat CMS
 
 UI Guidelines
 

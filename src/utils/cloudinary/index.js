@@ -12,7 +12,7 @@ cloudinary.config({
  * @param {string} folder - The folder in Cloudinary to upload to.
  * @returns {Promise<Object>} The Cloudinary upload result.
  */
-export const uploadImageToCloudinary = async (fileBuffer, folder = 'omvana') => {
+export const uploadImageToCloudinary = async (fileBuffer, folder = 'hotel_kedar') => {
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.uploader.upload_stream(
       { folder },

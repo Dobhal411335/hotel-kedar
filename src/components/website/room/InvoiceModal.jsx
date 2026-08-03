@@ -6,6 +6,7 @@ import jsPDF from "jspdf";
 import { Download, Loader2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useCompanyBasicInfo } from "@/providers/CompanyBasicInfoProvider";
 
 function formatDate(date) {
   if (!date) return "—";
@@ -44,6 +45,7 @@ export default function InvoiceModal({
   const invoiceRef = useRef(null);
   const exportRef = useRef(null);
   const [isExportingPdf, setIsExportingPdf] = useState(false);
+  const companyInfo = useCompanyBasicInfo();
 
   if (!open) return null;
 
@@ -124,8 +126,8 @@ export default function InvoiceModal({
         <div>
           <div className="relative mb-3 h-12 w-36 overflow-hidden rounded-card bg-surface">
             <Image
-              src="/logo.png"
-              alt="Omvana"
+              src={companyInfo?.mainLogo?.url || ""}
+              alt={companyInfo?.companyName || "Company Logo"}
               fill
               className="object-contain p-2"
               sizes="144px"
@@ -192,7 +194,7 @@ export default function InvoiceModal({
         availability and next steps. Keep this copy for your records.
       </p>
       <p className="text-center font-ui text-[11px] text-muted">
-        Automated acknowledgement · © {new Date().getFullYear()} Omvana
+        Automated acknowledgement · © {new Date().getFullYear()} {companyInfo?.companyName || "Our Company"}
       </p>
     </div>
   );

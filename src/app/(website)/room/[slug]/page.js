@@ -30,7 +30,7 @@ export async function generateMetadata({ params }) {
     title: room?.title || "Room",
     description:
       room?.heading ||
-      "Explore accommodation options at Omvana Yoga Retreat.",
+      "",
   };
 }
 

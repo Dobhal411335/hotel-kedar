@@ -1,6 +1,6 @@
 # 11-project-architecture.md
 
-# Omvana Retreat CMS
+# Hotel Kedar Heaven
 
 Version 1.0
 

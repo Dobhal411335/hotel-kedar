@@ -50,6 +50,7 @@ import { Section } from "@/components/common/Section";
 import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
 import BookingDetails from "@/components/website/room/BookingDetails";
+import { useCompanyBasicInfo } from "@/providers/CompanyBasicInfoProvider";
 
 const amenityIcons = {
   Restaurant: Utensils,
@@ -105,6 +106,7 @@ function stripHtmlPreview(html = "", wordLimit = 36) {
 }
 
 export default function RoomDetailView({ data }) {
+  const companyInfo = useCompanyBasicInfo();
   const [showExpertModal, setShowExpertModal] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
   const [expertForm, setExpertForm] = useState({
@@ -577,7 +579,7 @@ export default function RoomDetailView({ data }) {
               Other rooms
             </h2>
             <p className="mt-2 font-body text-sm text-muted">
-              More places to rest at Omvana.
+              More places to rest at {companyInfo?.companyName || "our retreat"}.
             </p>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {rooms.map((room) => {

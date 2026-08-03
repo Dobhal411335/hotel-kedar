@@ -1,6 +1,6 @@
 # DESIGN_SYSTEM.md
 
-# Omvana Retreat CMS
+# Hotel Kedar Heaven CMS
 
 Design System
 
@@ -58,7 +58,7 @@ It should never feel
 
 Primary References
 
-• Omvana Retreat
+• Hotel Kedar Heaven
 
 • Aman Resorts
 
