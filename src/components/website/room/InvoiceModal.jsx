@@ -125,13 +125,19 @@ export default function InvoiceModal({
       <div className="flex flex-col gap-4 sm:flex-row sm:justify-between">
         <div>
           <div className="relative mb-3 h-12 w-36 overflow-hidden rounded-card bg-surface">
-            <Image
-              src={companyInfo?.mainLogo?.url || ""}
-              alt={companyInfo?.companyName || "Company Logo"}
-              fill
-              className="object-contain p-2"
-              sizes="144px"
-            />
+            {companyInfo?.mainLogo?.url ? (
+              <Image
+                src={companyInfo.mainLogo.url}
+                alt={companyInfo?.companyName || "Company Logo"}
+                fill
+                className="object-contain p-2"
+                sizes="144px"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center bg-primary/10 text-primary font-heading text-sm font-semibold">
+                {companyInfo?.companyName || "Our Company"}
+              </div>
+            )}
           </div>
           <p className="font-heading text-xl font-medium text-heading">
             Thanks for your enquiry

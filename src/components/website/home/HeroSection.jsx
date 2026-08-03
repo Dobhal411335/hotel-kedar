@@ -146,14 +146,20 @@ export function HeroSection() {
                 <CarouselItem key={index} className="h-[calc(100vh-80px)]">
                   <Link href={item?.buttonLink || "#"} className="block h-full w-full">
                     <div className="relative h-[calc(100vh-80px)] w-full flex items-center justify-center bg-black">
-                      <Image
-                        src={item?.frontImg?.url || " "}
-                        alt={item?.title || "Banner Image"}
-                        fill
-                        quality={100}
-                        priority
-                        className="object-cover"
-                      />
+                      {item?.frontImg?.url ? (
+                        <Image
+                          src={item.frontImg.url}
+                          alt={item?.title || "Banner Image"}
+                          fill
+                          quality={100}
+                          priority
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gray-900 flex items-center justify-center text-white/50">
+                          No Image
+                        </div>
+                      )}
                     </div>
                   </Link>
                 </CarouselItem>
@@ -199,15 +205,17 @@ export function HeroSection() {
                   className="block w-full h-full"
                 >
                   <div className="relative w-full h-full overflow-hidden bg-black">
-                    <img
-                      src={
-                        banner.mobileImg?.url ||
-                        banner.frontImg?.url ||
-                        " "
-                      }
-                      alt={banner.title || "Banner Image"}
-                      className="w-full h-full object-cover object-center"
-                    />
+                    {(banner.mobileImg?.url || banner.frontImg?.url) ? (
+                      <img
+                        src={banner.mobileImg?.url || banner.frontImg?.url}
+                        alt={banner.title || "Banner Image"}
+                        className="w-full h-full object-cover object-center"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-900 flex items-center justify-center text-white/50">
+                        No Image
+                      </div>
+                    )}
                   </div>
                 </Link>
               </CarouselItem>

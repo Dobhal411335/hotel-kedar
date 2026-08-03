@@ -126,15 +126,21 @@ const Accommodation = () => {
                                                 <Carousel className="w-full h-full" opts={{ loop: true }}>
                                                     <CarouselContent>
                                                         {imageUrls.map((img, i) => (
-                                                            <CarouselItem key={i} className="w-full h-full flex items-center justify-center">
-                                                                <Image
-                                                                    src={img}
-                                                                    alt={item.title || 'Room'}
-                                                                    width={420}
-                                                                    height={420}
-                                                                    className="object-contain object-top w-[420px] h-[500px] rounded-xl"
-                                                                    priority={i === 0}
-                                                                />
+                                                            <CarouselItem key={i} className="w-full h-full flex items-center justify-center bg-gray-100 rounded-xl">
+                                                                {img ? (
+                                                                    <Image
+                                                                        src={img}
+                                                                        alt={item.title || 'Room'}
+                                                                        width={420}
+                                                                        height={420}
+                                                                        className="object-contain object-top w-[420px] h-[500px] rounded-xl"
+                                                                        priority={i === 0}
+                                                                    />
+                                                                ) : (
+                                                                    <div className="flex w-full h-full items-center justify-center text-gray-400">
+                                                                        <Loader2 className="animate-spin mr-2" /> No Image Available
+                                                                    </div>
+                                                                )}
                                                             </CarouselItem>
                                                         ))}
                                                     </CarouselContent>

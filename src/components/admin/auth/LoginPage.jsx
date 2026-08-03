@@ -116,13 +116,19 @@ function LeftPanel({ company }) {
 function AdminLogo({ company }) {
   return (
     <div className="flex items-center gap-2.5">
-      <Image
-        width={150}
-        height={150}
-        src={company?.mainLogo?.url || ""}
-        alt={company?.companyName || "Logo"}
-        className="size-12 rounded-full object-cover"
-      />
+      {company?.mainLogo?.url ? (
+        <Image
+          width={150}
+          height={150}
+          src={company.mainLogo.url}
+          alt={company?.companyName || "Logo"}
+          className="size-12 rounded-full object-cover"
+        />
+      ) : (
+        <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/15">
+          <Mountain className="size-6 text-primary" />
+        </div>
+      )}
       <div>
         <p className="font-heading text-base font-semibold text-heading">{company?.companyName || "Admin"}</p>
         <p className="font-ui text-[10px] uppercase tracking-widest text-muted/60">Retreat CMS</p>
