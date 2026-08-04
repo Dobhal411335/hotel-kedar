@@ -183,6 +183,8 @@ export default function PackageEnquiryModal({
             duration,
             tourType,
             price,
+            priceUnit: packageDetails?.priceUnit || "",
+            doubleOccupancyPrice: packageDetails?.doubleOccupancyPrice || 0,
           },
           name: data.name,
           email: data.email,
@@ -236,12 +238,31 @@ export default function PackageEnquiryModal({
         </p>
       )}
       {typeof price === "number" && (
-        <p>
-          From:{" "}
-          <span className="font-heading text-xl text-heading">
-            {price === 0 ? "XXXX*" : `₹${formatNumber(price)}*`}
-          </span>
-        </p>
+        <div className="flex flex-col gap-1">
+          {packageDetails?.priceUnit === "Double Occupancy Per Person Price Only" && packageDetails?.doubleOccupancyPrice > 0 ? (
+            <>
+              <p>
+                Single Occupancy:{" "}
+                <span className="font-heading text-xl text-heading">
+                  {price === 0 ? "XXXX*" : `₹${formatNumber(price)}`}
+                </span>
+              </p>
+              <p>
+                Double Occupancy:{" "}
+                <span className="font-heading text-xl text-heading">
+                  {`₹${formatNumber(packageDetails.doubleOccupancyPrice)}`}
+                </span>
+              </p>
+            </>
+          ) : (
+            <p>
+              From:{" "}
+              <span className="font-heading text-xl text-heading">
+                {price === 0 ? "XXXX*" : `₹${formatNumber(price)}`}
+              </span>
+            </p>
+          )}
+        </div>
       )}
     </div>
   );
@@ -532,7 +553,7 @@ export default function PackageEnquiryModal({
                     </button>
 
                     <a
-                      href={`https://wa.me/918006000325?text=${encodeURIComponent(
+                      href={`https://wa.me/+919762240419?text=${encodeURIComponent(
                         [
                           "Namaste 🙏",
                           "",

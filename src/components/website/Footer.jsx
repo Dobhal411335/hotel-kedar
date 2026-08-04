@@ -113,9 +113,8 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div>
             <Logo className={"flex items-center object-center h-32"} tone="light" name={companyName} imageSrc={footerLogoSrc} />
-            <p className="mt-6 max-w-xs font-body text-sm leading-7 text-white">
-              A spiritual habitat in Rishikesh for those returning home to
-              themselves.
+            <p className="mt-6 max-w-xs font-body text-xs leading-7 text-white">
+              Hotel Kedar Heaven that offer stunning views and serene experiences. Among them, the hotel stand out, providing cozy accommodations with breathtaking vistas of snow-capped peaks and lush valleys.
             </p>
           </div>
           <div>
