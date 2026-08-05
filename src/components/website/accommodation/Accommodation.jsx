@@ -206,7 +206,7 @@ const Accommodation = () => {
                                                             <span className="text-md text-gray-700">/ Per Night</span>
                                                             <Link
                                                                 className="ml-auto bg-green-700 hover:bg-green-800 text-white font-semibold md:px-16 md:px-8 px-3 md:py-2 py-1 rounded-md"
-                                                                href={`/room/${item.slug}`}
+                                                                href={`/hotel/${item.slug}`}
                                                             >View More</Link>
                                                         </div>
                                                     );
