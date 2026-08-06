@@ -28,7 +28,6 @@ export async function GET(req, { params }) {
     });
   }
 }
-
 export async function PUT(req, { params }) {
   const { id } = await params;
   if (!id) {
